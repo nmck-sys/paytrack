@@ -1,15 +1,46 @@
 // Get a reference to the #add-employees-btn element
 
-const addEmployeesBtn = document.querySelector('#add-employees-btn');
+const addEmployeesBtn = document.querySelector('#add-employees-btn')
 
 // Collect employee data
 const collectEmployees = function() {
-  // TODO: Get user input to create and return an array of employee objects
+// TODO: Get user input to create and return an array of employee objects
+    const employees = [];
+    let isThereMore = true
+
+    while (isThereMore) {
+        const firstName = prompt("enter the employee's first name");
+        const lastName = prompt("enter the employee's last name");
+        const salary = parseInt(prompt("enter the employee's salary"));
+
+        if (firstName && lastName && salary){
+            employees.push({firstName, lastName, salary})
+        }else {
+            alert("please enter details again")
+        }
+        isThereMore = confirm("do you want to add another employee")
+    }
+    return employees;
+
 }
 
+
 // Display the average salary
-const displayAverageSalary = function(employeesArray) {
+const displayAverageSalary = function findAverage(employeesArray) {
   // TODO: Calculate and display the average salary
+let totalSalary = 0;
+for (let i = 0; i < employeesArray.length; i++) {
+    // i starts at 0, until it reaches the end of the array, keep going
+    totalSalary += employeesArray[i].salary;
+    // 0 + 100 = 100
+    // 100 + 50 = 150
+}
+console.log("totalSalary: " + totalSalary)
+
+let average = totalSalary/employeesArray.length
+
+console.log("employee length: " + employeesArray.length)
+console.log("Salary average:" + average);
 }
 
 // Select a random employee
