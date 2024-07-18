@@ -5,7 +5,7 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn')
 // Collect employee data
 const collectEmployees = function() {
 // TODO: Get user input to create and return an array of employee objects
-    const employees = [];
+    let employees = [];
     let isThereMore = true
 
     while (isThereMore) {
@@ -13,15 +13,18 @@ const collectEmployees = function() {
         const lastName = prompt("enter the employee's last name");
         const salary = parseInt(prompt("enter the employee's salary"));
 
-        if (firstName && lastName && salary){
-            employees.push({firstName, lastName, salary})
-        }else {
-            alert("please enter details again")
+        // if (firstName && lastName && salary){
+        // }
+        const employee = {
+          firstName: firstName, 
+          lastName: lastName,
+          salary: salary
         }
+        employees.push(employee)
         isThereMore = confirm("do you want to add another employee")
-    }
-    return employees;
-
+      }
+      
+      return employees;
 }
 
 
@@ -35,19 +38,20 @@ for (let i = 0; i < employeesArray.length; i++) {
     // 0 + 100 = 100
     // 100 + 50 = 150
 }
-console.log("totalSalary: " + totalSalary)
 
 let average = totalSalary/employeesArray.length
 
-console.log("employee length: " + employeesArray.length)
-console.log("Salary average:" + average);
+console.log("The average salary between our employees is " + average);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
-  // TODO: Select and display a random employee
+  console.log(employeesArray);
+    const random = Math.floor(Math.random() * employeesArray.length);
+//    console.log("Congratulations to " + employeesArray[random] + ", our random drawing winner!");
+// TODO: Select and display a random employee
+console.log(`Congratulations ${employeesArray[random].firstName} ${employeesArray[random].lastName}`)
 }
-
 /*
   ====================
   STARTER CODE
